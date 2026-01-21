@@ -1,8 +1,8 @@
-1) Row selection (filtering)   
-This removes rows.    
-df.loc[condition, ["cols"]]     ->Output = only rows that match.  
-
-2)Column creation (conditional assignment)   
+1) Row selection (filtering)        
+This removes rows.                         
+df.loc[condition, ["cols"]]     ->Output = only rows that match.             
+           
+2)Column creation (conditional assignment)                 
 This keeps all rows and sets values.   
 This is what you need.   
 
