@@ -1,13 +1,22 @@
- ✅ LeetCode 2877 — Find Invalid Tweets (Pandas)
-Problem
-A tweet is invalid if the number of characters in its `content` is strictly greater than 15.
-Return a DataFrame containing only the `tweet_id` of invalid tweets.
-----
-✅ Solution (Pandas)
-import pandas as pd
-def invalidTweets(tweets: pd.DataFrame) -> pd.DataFrame:
--->  return tweets.loc[tweets["content"].str.len() > 15, ["tweet_id"]]
+✅ LeetCode 2877 — Find Invalid Tweets (Pandas)
+🧠 Problem
+A tweet is considered **invalid** if the number of characters in its `content` is **strictly greater than 15**.
 
+Return a DataFrame containing only the `tweet_id` of all invalid tweets.
+
+---
+✅ Approach
+- Use `str.len()` to compute the character length of each tweet’s `content`
+- Filter rows where length `> 15`
+- Return only the `tweet_id` column
+
+---
+💻 Pandas Solution
+
+import pandas as pd
+
+def invalidTweets(tweets: pd.DataFrame) -> pd.DataFrame:
+    return tweets.loc[tweets["content"].str.len() > 15, ["tweet_id"]]
 
 In pandas, to get the length of strings in a column,use:
 -->Series.str.len()
