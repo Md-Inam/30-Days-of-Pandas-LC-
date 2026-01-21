@@ -1,4 +1,4 @@
-he table records which user viewed which article on a given date.
+The table records which user viewed which article on a given date.
 An author may also be a viewer, meaning the same person can appear as both author_id and viewer_id.
 The task is to find all authors who viewed at least one of their own articles. Because rows can repeat, duplicate authors must be removed and the final list sorted in ascending order
 Note that equal author_id and viewer_id indicate the same person.
