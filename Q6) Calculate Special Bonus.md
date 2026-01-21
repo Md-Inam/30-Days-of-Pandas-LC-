@@ -23,12 +23,13 @@ sorted by `employee_id`.
               
 ---            
                     
-✅ 1) `.where()` solution (cleanest, pandas-native)            
+✅ 1) `.where()`             
 import pandas as pd                 
 def calculate_special_bonus(employees: pd.DataFrame) -> pd.DataFrame:                     
     cond = (employees["employee_id"] % 2 == 1) & (~employees["name"].str.startswith("M"))           
     employees["bonus"] = employees["salary"].where(cond, 0)             
-    return employees[["employee_id", "bonus"]].sort_values("employee_id")              
+    return employees[["employee_id", "bonus"]].sort_values("employee_id")   
+    
 ---            
             
 ✅ 2) np.where() solution (classic IF-ELSE)            
