@@ -3,7 +3,7 @@
 A tweet is considered **invalid** if the number of characters in its `content` is **strictly greater than 15**.
 
 Return a DataFrame containing only the `tweet_id` of all invalid tweets.
-
+ 
 ---
 ✅ Approach
 - Use `str.len()` to compute the character length of each tweet’s `content`
