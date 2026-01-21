@@ -24,6 +24,7 @@ sorted by `employee_id`.
 ---            
                     
 ✅ 1) `.where()`             
+ 
 import pandas as pd                 
 def calculate_special_bonus(employees: pd.DataFrame) -> pd.DataFrame:                     
     cond = (employees["employee_id"] % 2 == 1) & (~employees["name"].str.startswith("M"))           
@@ -32,7 +33,8 @@ def calculate_special_bonus(employees: pd.DataFrame) -> pd.DataFrame:
     
 ---            
             
-✅ 2) np.where() solution (classic IF-ELSE)            
+✅ 2) np.where() solution (classic IF-ELSE)    
+  
 import pandas as pd           
 import numpy as np          
 def calculate_special_bonus(employees: pd.DataFrame) -> pd.DataFrame:                         
@@ -42,7 +44,8 @@ def calculate_special_bonus(employees: pd.DataFrame) -> pd.DataFrame:
     
 ---                  
             
-✅ 3) .loc assignment solution                     
+✅ 3) .loc assignment solution               
+ 
 import pandas as pd                    
 def calculate_special_bonus(employees: pd.DataFrame) -> pd.DataFrame:             
     employees["bonus"] = 0                 
