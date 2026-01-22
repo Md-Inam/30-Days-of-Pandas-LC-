@@ -1,4 +1,4 @@
-A1)
+A1)    
 SELECT     P.product_name,S.year,S.price         
 FROM       Sales AS S              
 LEFT JOIN Product P           
@@ -7,7 +7,7 @@ ON         S.product_id=P.product_id
  
 
 -----
-A2)
+A2)         
 SELECT P.product_name, S.year, S.price  
 FROM Sales AS S              
 INNER JOIN Product AS P         
