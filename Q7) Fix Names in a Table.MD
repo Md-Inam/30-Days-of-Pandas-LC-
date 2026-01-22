@@ -19,3 +19,13 @@ users["name"] = users["name"].str.capitalize()
     
 ✅ Manual (shows two explicit operations)   
 users["name"] = users["name"].str[0].str.upper() + users["name"].str[1:].str.lower()    
+
+
+---------
+  
+| Method              | What it does                           |
+| ------------------- | -------------------------------------- |
+| `.str.lower()`      | all lowercase                          |
+| `.str.upper()`      | ALL UPPERCASE                          |
+| `.str.capitalize()` | First letter uppercase, rest lowercase |
+| `.str.title()`      | First Letter Of Every Word Uppercase   |
