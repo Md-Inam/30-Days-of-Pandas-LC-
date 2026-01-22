@@ -52,4 +52,20 @@ def calculate_special_bonus(employees: pd.DataFrame) -> pd.DataFrame:
     cond = (employees["employee_id"] % 2 == 1) & (~employees["name"].str.startswith("M"))         
     employees.loc[cond, "bonus"] = employees.loc[cond, "salary"]            
     return employees[["employee_id", "bonus"]].sort_values("employee_id")          
-    
+
+
+
+.where()  
+employees["bonus"] = employees["salary"].where(cond, 0)      
+
+---
+               
+np.where() (classic)                
+employees["bonus"] = np.where(cond, employees["salary"], 0)       
+
+---  
+          
+.loc assignment (explicit)                      
+employees["bonus"] = 0        
+employees.loc[cond, "bonus"] = employees.loc[cond, "salary"]         
+
