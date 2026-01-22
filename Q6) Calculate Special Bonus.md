@@ -53,7 +53,7 @@ def calculate_special_bonus(employees: pd.DataFrame) -> pd.DataFrame:
     employees.loc[cond, "bonus"] = employees.loc[cond, "salary"]            
     return employees[["employee_id", "bonus"]].sort_values("employee_id")          
 
-
+--- 
 
 .where()  
 employees["bonus"] = employees["salary"].where(cond, 0)      
