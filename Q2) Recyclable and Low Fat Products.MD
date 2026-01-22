@@ -1,32 +1,32 @@
 Filtering and returning are two separate steps.
-Pandas does not forget columns after filtering.
-It does this in order:
-1️⃣ Use ALL columns to decide which rows match  
-2️⃣ THEN return only the columns you ask for
-
-A)
-products.loc[(products["low_fats"] == "Y") & (products["recyclable"] == "Y"),["product_id"]]
-
+Pandas does not forget columns after filtering. 
+It does this in order:          
+1️⃣ Use ALL columns to decide which rows match          
+2️⃣ THEN return only the columns you ask for           
+           
+A)          
+products.loc[(products["low_fats"] == "Y") & (products["recyclable"] == "Y"),["product_id"]]         
+      
 Step 1 — row filtering (uses full table)
 Pandas looks at:
-low_fats
-recyclable       At this stage, all columns still exist internally
+low_fats     
+recyclable       At this stage, all columns still exist internally     
 
-Step 2 — column selection
+Step 2 — column selection      
 After rows are chosen, pandas then says:
 “Okay, now only show me the product_id column.”
+       
 
-
-
+      
 
 
 Yes.
-That’s exactly it. You just said it correctly. Lock this in.
+That’s exactly it. You just said it correctly. Lock this in.      
+     
+Now I’ll tighten the definition so it’s unbreakable in your head.     
 
-Now I’ll tighten the definition so it’s unbreakable in your head.
-
----
-
+---      
+        
 ✅ What `.loc` actually does
 df.loc[ ROW_SELECTION , COLUMN_SELECTION ]
 
@@ -64,6 +64,8 @@ This part:
 4️⃣ return selected columns
 Filtering → then projecting.
 
+---  
+    
 ⚠️ Very common beginner mistake
 People think:
 > “If I don’t select the column, pandas can’t use it.”
@@ -74,8 +76,6 @@ They are inputs, not outputs.
 🧠 One-line mental model
 > Rows decide **which records survive**.
 > Columns decide **what information you display**.
-
-✅ So your understanding is now correct
 ✔ Row selection uses **all necessary columns**
 ✔ Column selection returns **only what you want**
 ✔ They are independent
