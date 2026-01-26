@@ -1,6 +1,6 @@
-Optimal:
+Optimal:        
 return patients.loc[patients["conditions"].fillna("").str.split().apply(lambda words:any(word.startswith("DIAB1") for word in words))]
-
+   
 | Operation Type      | What NaN does                   | Need fillna?       |     
 | ------------------- | ------------------------------- | ------------------ |             
 | `.str.method()`     | Can break logic or later loops  | ✅ Usually YES      |         
