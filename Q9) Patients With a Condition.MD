@@ -2,8 +2,30 @@ A)
 return patients.loc[patients["conditions"].str.contains(r"\bDIAB1\b", na=False, regex=True),
 ["patient_id","patient_name","conditions"]]    
 
-ERROR:   
-return patients.loc[patients["conditions"].str.startswith("DIAB1"),["patient_id","patient_name","conditions"]]    
+
+r"\bDIAB1\b"  
+r""
+Raw string  
+
+\b (word boundary)  
+👉 “The character before/after must NOT be a letter, number, or underscore.”   
+   
+What matches ✅  
+"DIAB1"                      
+"ACNE DIAB1"              
+"DIAB1 HYPERTENSION"           
+"DIAB1, ASTHMA"                        
+Because space, comma, start/end of string = valid boundaries.          
+              
+What does NOT match ❌              
+"SADIAB100" → letters touching it                     
+"DIAB12" → number touching it                   
+"XDIAB1Y" → letters hugging it on both sides            
+
+--- 
+
+ERROR:                               
+return patients.loc[patients["conditions"].str.startswith("DIAB1"),["patient_id","patient_name","conditions"]]        
 
 ---
 
