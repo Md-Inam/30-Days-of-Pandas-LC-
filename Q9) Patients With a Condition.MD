@@ -8,9 +8,11 @@ return patients.loc[patients["conditions"].fillna("").str.split().apply(lambda w
 | `+ - * /` math      | Spreads NaN but doesn’t crash   | 🤔 Depends on goal |         
 | Custom `.apply()`   | Often crashes if NaN unexpected | ✅ Often YES        |             
 
-
-
-
+lambda words: receives a list of condition codes for one patient, like ["ACNE", "DIAB100"].        
+The loop checks each individual code (word) in that list.                     
+any(word.startswith("DIAB1") ...) returns True if at least one code begins with DIAB1           
+          
+                  
 ---   
 
 Also FAIL:
