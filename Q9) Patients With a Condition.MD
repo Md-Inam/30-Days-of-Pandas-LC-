@@ -1,4 +1,25 @@
-A)
+Optimal:
+return patients.loc[patients["conditions"].fillna("").str.split().apply(lambda words:any(word.startswith("DIAB1") for word in words))]
+
+| Operation Type      | What NaN does                   | Need fillna?       |     
+| ------------------- | ------------------------------- | ------------------ |             
+| `.str.method()`     | Can break logic or later loops  | ✅ Usually YES      |         
+| `.sum()`, `.mean()` | Ignored automatically           | ❌ Usually NO       |         
+| `+ - * /` math      | Spreads NaN but doesn’t crash   | 🤔 Depends on goal |         
+| Custom `.apply()`   | Often crashes if NaN unexpected | ✅ Often YES        |             
+
+
+
+
+---   
+
+Also FAIL:
+return patients.loc[patients["conditions"].str.contains(r"(^|\s)DIAB1\w*", na=False, regex=True),["patient_id","patient_name","conditions"]]
+
+---  
+
+
+Error:   
 return patients.loc[patients["conditions"].str.contains(r"\bDIAB1\b", na=False, regex=True),
 ["patient_id","patient_name","conditions"]]    
 
@@ -6,7 +27,7 @@ return patients.loc[patients["conditions"].str.contains(r"\bDIAB1\b", na=False, 
 r"\bDIAB1\b"  
 r""
 Raw string  
-
+ 
 \b (word boundary)  
 👉 “The character before/after must NOT be a letter, number, or underscore.”   
    
@@ -21,6 +42,12 @@ What does NOT match ❌
 "SADIAB100" → letters touching it                     
 "DIAB12" → number touching it                   
 "XDIAB1Y" → letters hugging it on both sides            
+
+
+conditions contains codes separated by spaces      
+Type I Diabetes always starts with DIAB1 prefix  
+That means each condition is a token, and we match any token that starts with DIAB1, not equals DIAB1  
+
 
 --- 
 
