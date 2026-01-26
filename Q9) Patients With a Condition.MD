@@ -1,3 +1,7 @@
+A)
+return patients.loc[patients["conditions"].str.contains(r"\bDIAB1\b", na=False, regex=True),
+["patient_id","patient_name","conditions"]]    
+
 ERROR:   
 return patients.loc[patients["conditions"].str.startswith("DIAB1"),["patient_id","patient_name","conditions"]]    
 
@@ -17,6 +21,8 @@ FIX:
 return patients.loc[
     patients["conditions"].str.contains("DIAB1", na=False),
     ["patient_id", "patient_name", "conditions"]]
+
+But Fails in Testcase
 ---  
 
 How:
